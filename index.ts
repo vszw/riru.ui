@@ -1,7 +1,9 @@
 import { Hono } from 'hono'
-import getAvailablePort from './utils/ports'
+import { openUrl } from './utils/shell'
 
 import logger from './utils/logger'
+import getAvailablePort from './utils/ports'
+
 logger()
 
 const app = new Hono()
@@ -15,4 +17,5 @@ export default {
     port, fetch: app.fetch
 }
 
+//await openUrl(`http://127.0.0.1:${port}`)
 console.log(`listening on http://127.0.0.1:${port}`)
